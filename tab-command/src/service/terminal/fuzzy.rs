@@ -640,7 +640,7 @@ impl FuzzyFinderService {
         stdout.queue(Hide)?;
 
         stdout.queue(MoveTo(0, 0))?;
-        stdout.queue(Print("❯ "))?;
+        stdout.queue(Print("> "))?;
         stdout.queue(Print(query.query.as_str().bold()))?;
         stdout.queue(Clear(ClearType::UntilNewLine))?;
 
@@ -659,7 +659,7 @@ impl FuzzyFinderService {
             stdout.queue(MoveTo(0, row as u16))?;
 
             if selected {
-                stdout.queue(PrintStyledContent("❯ ".blue()))?;
+                stdout.queue(PrintStyledContent("> ".blue()))?;
                 Self::print_selected_tab(stdout, name)?;
 
                 if let Some(doc) = doc {
